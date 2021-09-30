@@ -3,7 +3,6 @@ import { get, child, ref } from "firebase/database";
 import { db } from "../../services/server";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { NavBar } from "./";
 
 const ProductList = () => {
   const [Products, setProducts] = useState([]);
@@ -47,8 +46,6 @@ const ProductList = () => {
   return (
     <div className="wrapper">
       <div className="container">
-        <div></div>
-
         <div className="row">
           {/* the product items to display here.  */}
 

@@ -42,7 +42,7 @@ const OrdersPage = () => {
   const onDeleteButtonPressed = (e) => {
     e.preventDefault();
     console.error("Deleted!");
-    remove(child(dbRef, "users/1/orders/1")).catch((error) => {
+    remove(child(dbRef, "users/" + user.uid + "/orders/1")).catch((error) => {
       console.error(error);
     });
   };
