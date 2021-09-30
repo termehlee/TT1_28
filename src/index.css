@@ -50,3 +50,66 @@ nav {
   text-decoration: underline;
   background-color: cyan;
 }
+
+
+.profile{
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  border-style: hidden;
+  padding: 18px; 
+  text-align: center;
+}
+
+.profile img {
+  border-radius: 50%;
+  border: 1px solid rgb(204, 204, 204);
+}
+
+
+.profile h1{
+  font-family: 'Ruda', sans-serif;
+}
+
+.profile p{
+  font-family: 'Slabo 27px', serif;
+  font-size: 20px;
+}
+
+.container-details{
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  margin-top:30px
+}
+
+.container-details form {
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 10%;
+  padding: 20px
+}
+
+.container-details form:hover {
+  box-shadow: 2px 3px 5px 7px rgba(0,0,0,0.1);
+}
+
+.container-details label:hover {
+  box-shadow: 3px 5px 7px rgba(0,0,0,0.1);
+}
+
+.container-details button {
+  border:None;
+  font-size: large;
+  background-color: #e75a5a;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-top: 30px;
+  color: black;
+  max-width: 190px;
+  font-weight: bold;
+}
+
+.container-details button:hover {
+  background-color: cyan;
+}
+
+
