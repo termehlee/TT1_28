@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { get, child, ref, remove } from "firebase/database";
-import { db } from "../../server.js";
+import { db } from "../../services/server.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../services/server.js";
 const OrdersPage = () => {
@@ -24,7 +24,7 @@ const OrdersPage = () => {
 
   //! change hardcored userId
   useEffect(() => {
-    get(child(dbRef, "users/" + user.uid + "/orders/"))
+    get(child(dbRef, "users/rxfrnP7hNxbaxtWRe4iNFwF3wAo2/orders/"))
       .then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
@@ -36,15 +36,17 @@ const OrdersPage = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [dbRef, user.uid]);
+  }, [dbRef]);
 
   //! TODO: Implement delete order function
   const onDeleteButtonPressed = (e) => {
     e.preventDefault();
     console.error("Deleted!");
-    remove(child(dbRef, "users/" + user.uid + "/orders/1")).catch((error) => {
-      console.error(error);
-    });
+    remove(child(dbRef, "users/rxfrnP7hNxbaxtWRe4iNFwF3wAo2/orders/1")).catch(
+      (error) => {
+        console.error(error);
+      },
+    );
   };
 
   return (

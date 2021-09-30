@@ -10,6 +10,7 @@ import ProductList from "./components/Products/productPage";
 // import Signup from './components/Signup/Signup';
 import ShoppingCart from "./components/Cart/ShoppingCart";
 import NavBar from "./components/Navbar/Navbar";
+import OrdersPage from "./components/OrderPage/orderPage";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
             <Registration />
           </Route>
           <Route exact path={"/cart"} component={ShoppingCart} />
+
+          <Route exact path={"/orders"} component={OrdersPage} />
         </Switch>
       </div>
     </BrowserRouter>

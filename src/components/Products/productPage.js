@@ -72,7 +72,7 @@ const ProductList = () => {
                     <span className="mr-1">$</span>
                     {Products.price}
                   </h5>
-                  <h6>qty: {Products.qty}</h6>
+                  {/* <h6>qty: {Products.qty}</h6> */}
                   <input
                     type="text"
                     style={{ width: "40px", height: "25px" }}
