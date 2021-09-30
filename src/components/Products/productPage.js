@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import ProductService from "../../services/ProductService";
 import { get, child, ref } from "firebase/database";
 import { db } from "../../services/server";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
+// import { NavBar } from "./";
 
 const ProductList = () => {
   const [Products, setProducts] = useState([]);
@@ -45,55 +45,59 @@ const ProductList = () => {
 
   //! TODO: JSX
   return (
+    <div className="wrapper">
+      <div className="container">
+        <div></div>
 
-  <div className="wrapper">
-        
-    <div className="container">
-      
+        <div className="row">
+          {/* the product items to display here.  */}
 
-      <div className="row">
-      
-      {/* the product items to display here.  */}
+          {Products.map((Products, index) => (
+            <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3 ">
+              <div className="card">
+                <div className="img-container p-5">
+                  <img
+                    src={Products.image}
+                    style={{ height: "200px", width: "200px" }}
+                  ></img>
+                </div>
+                <div>
+                  <h4>{Products.title}</h4>
+                </div>
+                <div>
+                  <p>{Products.description}</p>
+                </div>
 
-      {Products.map((Products, index) => (
-        <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3 ">
-          <div className="card">
-            <div className="img-container p-5" >
-                <img src={Products.image} style={{height: "200px", width: "200px"}}></img>
+                {/* Card footer */}
+                <div className="card-footer d-flex justify-content-between">
+                  <p className="align-self-center mb-0"></p>
+                  <h5 className="text-blue font-italic mb-0">
+                    <span className="mr-1">$</span>
+                    {Products.price}
+                  </h5>
+                  <h6>qty: {Products.qty}</h6>
+                  <input
+                    type="text"
+                    style={{ width: "40px", height: "25px" }}
+                  />
+                  <button style={{ fontSize: 12 }}>Add to Cart</button>
+                </div>
               </div>
-              <div><h4>{Products.title}</h4></div>
-              <div><p>{Products.description}</p></div>
-
-            {/* Card footer */}
-            <div className="card-footer d-flex justify-content-between">
-              <p className="align-self-center mb-0"></p>
-              <h5 className="text-blue font-italic mb-0">
-                <span className="mr-1">$</span>{Products.price}</h5>
-              <h6>qty: {Products.qty}</h6>
-              <input type="text" style={{width:"40px", height:"25px"}}/>
-              <button style={{fontSize: 12}}>Add to Cart</button>
-            </div>
-          </div>
-      </ProductWrapper>
-    ))}  
-      
+            </ProductWrapper>
+          ))}
+        </div>
       </div>
-
     </div>
-
-  </div>
-
   );
 };
 
 const ProductWrapper = styled.div`
-
   .card {
     border-color: transparent;
     transition: all 1s linear;
     width: 280px;
-    
-    flex-direction:
+
+    flex-direction: ;
   }
   .card-footer {
     background: transparent;

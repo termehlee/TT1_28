@@ -75,7 +75,7 @@ const registerWithEmailAndPassword = async (
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
-    await firestore.collection("users").add({
+    await firestore.collection("users").doc(user.uid).set({
       uid: user.uid,
       name,
       authProvider: "local",

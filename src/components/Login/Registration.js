@@ -68,7 +68,7 @@ function Registration() {
         <form onSubmit={submitHandler}>
           <div className={classes.control}>
             <label>
-              <p>Username</p>
+              <p>Email</p>
               <input
                 type="text"
                 onChange={usernameHandler}
