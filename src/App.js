@@ -11,8 +11,6 @@ import ProductList from './components/Products/productPage';
 import ShoppingCart from './components/Cart/ShoppingCart';
 
 function App() {
-  const [token, setToken] = useState();
-
   return (
     <BrowserRouter>
       <div className="wrapper">
@@ -34,6 +32,7 @@ function App() {
       </div>
     </BrowserRouter>
   );
+
 }
 
 export default App;
