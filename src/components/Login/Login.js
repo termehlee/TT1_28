@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import Card from './Card';
-import classes from './Login.module.css';
-import Button from './Button';
-
+import React, { useState } from "react";
+import Card from "./Card";
+import classes from "./Login.module.css";
+import Button from "./Button";
 
 // async function loginUser(credentials) {
 //   return fetch('http://localhost:8080/login', {
@@ -15,23 +14,23 @@ import Button from './Button';
 //   .then(data => data.json())
 // }
 
-const Login = (props, {setToken}) => {
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredPassword, setEnteredPassword] = useState('');
+const Login = (props, { setToken }) => {
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [emailIsValid, setEmailIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // const token = await loginUser({
     //   enteredEmail,
     //   enteredPassword
     // });
     // setToken(token)
-    
     console.log(enteredEmail, enteredPassword);
-  }
+    window.location.href = "http://localhost:3000/products";
+  };
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
@@ -40,13 +39,11 @@ const Login = (props, {setToken}) => {
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
 
-    setFormIsValid(
-      event.target.value.trim().length > 6
-    );
+    setFormIsValid(event.target.value.trim().length > 6);
   };
 
   const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.includes('@'));
+    setEmailIsValid(enteredEmail.includes("@"));
   };
 
   const validatePasswordHandler = () => {
@@ -58,7 +55,7 @@ const Login = (props, {setToken}) => {
       <form onSubmit={handleSubmit}>
         <div
           className={`${classes.control} ${
-            emailIsValid === false ? classes.invalid : ''
+            emailIsValid === false ? classes.invalid : ""
           }`}
         >
           <label htmlFor="email">Email</label>
@@ -73,7 +70,7 @@ const Login = (props, {setToken}) => {
         </div>
         <div
           className={`${classes.control} ${
-            passwordIsValid === false ? classes.invalid : ''
+            passwordIsValid === false ? classes.invalid : ""
           }`}
         >
           <label htmlFor="password">Password</label>
@@ -86,12 +83,12 @@ const Login = (props, {setToken}) => {
             placeholder="<Password must be at least 6 characters>"
           />
         </div>
-        
+
         <div className={classes.actions}>
-        <Button type="button" className={classes.btn}>
+          <Button type="button" className={classes.btn}>
             Sign up
           </Button>
-          
+
           <Button type="submit" className={classes.btn} disabled={!formIsValid}>
             Login
           </Button>

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
@@ -13,13 +14,13 @@ function App() {
 
   // if(!token) {
   //   return <Login setToken={setToken} />
-  // }
 
   return (
     <div className="wrapper">
       <h1>Application</h1>
       <BrowserRouter>
         <Switch>
+          <Route exact path={"/products"} component={ProductList} />
           <Route path="/dashboard">
             <Dashboard />
           </Route>
