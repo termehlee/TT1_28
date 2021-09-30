@@ -11,6 +11,7 @@ import ProductList from "./components/Products/productPage";
 import ShoppingCart from "./components/Cart/ShoppingCart";
 import NavBar from "./components/Navbar/Navbar";
 import OrdersPage from "./components/OrderPage/orderPage";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         <Switch>
           <Route exact path={"/products"} component={ProductList} />
           <Route exact path="/" component={Login} />
+          <Route path="/profile">
+            <Profile />
+          </Route>
           <Route path="/dashboard">
             <Dashboard />
           </Route>

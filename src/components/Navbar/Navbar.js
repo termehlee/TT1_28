@@ -5,10 +5,11 @@ import { logout } from "../../services/server";
 const Navbar = () => {
   const [navs] = useState([
     { link: "/", value: "Home", id: 1 },
-    { link: "/cart", value: "Shopping Cart", id: 3 },
-    { link: "/register", value: "Register", id: 2 },
+    { link: "/cart", value: "Shopping Cart", id: 2 },
+    { link: "/register", value: "Register", id: 3 },
     { link: "/login", value: "Login", id: 4 },
-    { link: "/orders", value: "Orders", id: 4 },
+    { link: "/orders", value: "Orders", id: 5 },
+    { link: "/profile", value: "Profile", id: 6 },
   ]);
   return (
     <div className="navbar">
