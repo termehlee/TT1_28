@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProductService from "../../services/ProductService";
 import { get, child, ref } from "firebase/database";
-import { db } from "../../server.js";
+import { db } from "../../services/server";
 
 const ProductList = () => {
   const [Products, setProducts] = useState([]);

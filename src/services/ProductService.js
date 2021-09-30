@@ -1,5 +1,5 @@
 import { get, child } from "firebase/database";
-import { db } from "../server.js";
+import { db } from "./server.js";
 
 const getAllProducts = () => {
   get(child(db, "products"))

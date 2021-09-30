@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from './Card';
 import classes from './Login.module.css';
 import Button from './Button';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useHistory } from "react-router-dom";
+import { auth, registerWithEmailAndPassword, signInWithGoogle } from "../../services/server.js";
 
 function Registration() {
   const [inputUsername, setInputUsername] = useState("");
@@ -9,6 +12,9 @@ function Registration() {
   const [inputName, setInputName] = useState("");
   const [inputPostal, setInputInputPostal] = useState("");
   const [inputGender, setInputInputGender] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+  const history = useHistory();
+
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -19,7 +25,14 @@ function Registration() {
       inputPostal,
       inputGender
     );
+    console.log(typeof(inputUsername))
+    registerWithEmailAndPassword(inputName.trim(), inputUsername.trim(), inputPassword)
   };
+
+  useEffect(() => {
+    if (loading) return;
+    if (user) history.replace("/products");
+  }, [user, loading]);
 
   const usernameHandler = (event) => {
     setInputUsername(event.target.value);

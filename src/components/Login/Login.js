@@ -1,25 +1,29 @@
-import React, { useState } from "react";
-import Card from "./Card";
-import classes from "./Login.module.css";
-import Button from "./Button";
+import React, { useEffect, useState } from 'react';
+import Card from './Card';
+import classes from './Login.module.css';
+import Button from './Button';
+import { Link, useHistory } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../services/server.js";
 
-// async function loginUser(credentials) {
-//   return fetch('http://localhost:8080/login', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(credentials)
-//   })
-//   .then(data => data.json())
-// }
-
-const Login = (props, { setToken }) => {
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredPassword, setEnteredPassword] = useState("");
+const Login = () => {
+  const [enteredEmail, setEnteredEmail] = useState('');
+  const [enteredPassword, setEnteredPassword] = useState('');
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [emailIsValid, setEmailIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+    if (user) {
+      console.log(history, "history")
+      history.replace("/products");
+    }
+  }, [user, loading]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -31,6 +35,10 @@ const Login = (props, { setToken }) => {
     console.log(enteredEmail, enteredPassword);
     window.location.href = "http://localhost:3000/products";
   };
+
+  const handleRegistration = () => {
+    history.replace("/registration")
+  }
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
@@ -85,12 +93,20 @@ const Login = (props, { setToken }) => {
         </div>
 
         <div className={classes.actions}>
-          <Button type="button" className={classes.btn}>
+        <Button type="button" className={classes.btn} onClick={handleRegistration}>
             Sign up
           </Button>
 
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+          <Button
+            type="submit"
+            className={classes.btn}
+            disabled={!formIsValid}
+            onClick={() => signInWithEmailAndPassword(enteredEmail, enteredPassword)}>
             Login
+          </Button>
+
+          <Button className={classes.btn} onClick={signInWithGoogle}>
+            Login with Google
           </Button>
         </div>
       </form>
