@@ -97,7 +97,6 @@ const Login = (props, {setToken}) => {
           </Button>
         </div>
       </form>
-
     </Card>
   );
 };
