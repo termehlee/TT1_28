@@ -8,12 +8,13 @@ import Preferences from './components/Preferences/Preferences';
 import Login from './components/Login/Login';
 import Registration from './components/Login/Registration';
 // import Signup from './components/Signup/Signup';
+import ShoppingCart from './components/Cart/ShoppingCart';
 
 function App() {
-  // const [token, setToken] = useState();
+  const [token, setToken] = useState();
 
-  // if(!token) {
-  //   return <Login setToken={setToken} />
+  if(!token) {
+    return <Login setToken={setToken} />
 
   return (
     <div className="wrapper">
@@ -30,6 +31,7 @@ function App() {
           <Route path="/Registraion">
             <Registration />
           </Route>
+          <Route exact path={"/cart"} component={Cart} />
         </Switch>
       </BrowserRouter>
     </div>
