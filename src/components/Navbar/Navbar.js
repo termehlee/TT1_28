@@ -8,6 +8,7 @@ const Navbar = () => {
     { link: "/cart", value: "Shopping Cart", id: 3 },
     { link: "/register", value: "Register", id: 2 },
     { link: "/login", value: "Login", id: 4 },
+    { link: "/orders", value: "Orders", id: 4 },
   ]);
   return (
     <div className="navbar">
