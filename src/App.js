@@ -11,11 +11,6 @@ import ProductList from './components/Products/productPage';
 import ShoppingCart from './components/Cart/ShoppingCart';
 
 function App() {
-  const [token, setToken] = useState();
-
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
   return (
     <BrowserRouter>
       <div className="wrapper">
