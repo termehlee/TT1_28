@@ -102,12 +102,7 @@ function App() {
         
         
         </div>
-        {/* <Container>
-  <Row>
-    <Col type="col-md-6" className="first" style={{backgroundColor: "purple"}}>Hi, my name is</Col>
-    <Col type="col-md-6" className="second" style={{backgroundColor: "skyblue"}}>Novandra Zulfi Ramadhan</Col>
-  </Row>
-</Container> */}
+
       </div>
 
 
