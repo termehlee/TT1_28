@@ -21,7 +21,7 @@ function App() {
       <h1>Application</h1>
       <BrowserRouter>
         <Switch>
-          {/* <Route exact path={"/products"} component={ProductList} /> */}
+          <Route exact path={"/products"} component={ProductList} />
           <Route path="/dashboard">
             <Dashboard />
           </Route>
