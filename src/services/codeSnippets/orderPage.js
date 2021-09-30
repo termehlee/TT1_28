@@ -35,7 +35,7 @@ const OrdersPage = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [dbRef]);
+  }, [dbRef, user.uid]);
 
   //! TODO: Implement delete order function
   const onDeleteButtonPressed = () => {
