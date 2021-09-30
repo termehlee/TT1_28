@@ -13,9 +13,6 @@ import ShoppingCart from './components/Cart/ShoppingCart';
 function App() {
   const [token, setToken] = useState();
 
-  if(!token) {
-    return <Login setToken={setToken} />
-
   return (
     <BrowserRouter>
       <div className="wrapper">
@@ -32,7 +29,7 @@ function App() {
           <Route path="/registration">
             <Registration />
           </Route>
-          <Route exact path={"/cart"} component={Cart} />
+          <Route exact path={"/cart"} component={ShoppingCart} />
         </Switch>
       </div>
     </BrowserRouter>
