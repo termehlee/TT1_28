@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Dashboard from './components/Dashboard/Dashboard';
-import Preferences from './components/Preferences/Preferences';
-import Login from './components/Login/Login';
-import Registration from './components/Login/Registration';
-import ProductList from './components/Products/productPage';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Preferences from "./components/Preferences/Preferences";
+import Login from "./components/Login/Login";
+import Registration from "./components/Login/Registration";
+import ProductList from "./components/Products/productPage";
 // import Signup from './components/Signup/Signup';
-import ShoppingCart from './components/Cart/ShoppingCart';
+import ShoppingCart from "./components/Cart/ShoppingCart";
+import NavBar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <div className="wrapper">
         <h1>Application</h1>
         <Switch>
@@ -32,7 +34,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-
 }
 
 export default App;
