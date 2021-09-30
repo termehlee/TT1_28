@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Preferences from './components/Preferences/Preferences';
 import Login from './components/Login/Login';
 import Registration from './components/Login/Registration';
+import ProductList from './components/Products/productPage';
 // import Signup from './components/Signup/Signup';
 
 function App() {
@@ -16,23 +17,24 @@ function App() {
   //   return <Login setToken={setToken} />
 
   return (
-    <div className="wrapper">
-      <h1>Application</h1>
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="wrapper">
+        <h1>Application</h1>
         <Switch>
           <Route exact path={"/products"} component={ProductList} />
+          <Route exact path="/" component={Login} />
           <Route path="/dashboard">
             <Dashboard />
           </Route>
           <Route path="/preferences">
             <Preferences />
           </Route>
-          <Route path="/Registraion">
+          <Route path="/registration">
             <Registration />
           </Route>
         </Switch>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
