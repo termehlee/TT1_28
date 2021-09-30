@@ -27,6 +27,8 @@ const firebaseConfig = {
   authDomain: "techtreck-8a422.firebaseapp.com",
   projectId: "techtreck-8a422",
   storageBucket: "techtreck-8a422.appspot.com",
+  databaseURL:
+    "https://techtreck-8a422-default-rtdb.asia-southeast1.firebasedatabase.app",
   messagingSenderId: "634362721671",
   appId: "1:634362721671:web:f59e7fb283d4d0f9de4f22",
   measurementId: "G-RJXBZBGXLN",
