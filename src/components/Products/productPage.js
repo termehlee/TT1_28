@@ -5,6 +5,7 @@ import { db } from "../../server.js";
 
 const ProductList = () => {
   const [Products, setProducts] = useState([]);
+  const dbRef = ref(db);
 
   const onDataChange = (items) => {
     let Products = [];
@@ -22,8 +23,6 @@ const ProductList = () => {
 
     setProducts(Products);
   };
-
-  const dbRef = ref(db);
 
   useEffect(() => {
     get(child(dbRef, `products`))

@@ -1,11 +1,31 @@
-const submitOrder = () => {
+import { set, child, ref } from "firebase/database";
+import { db } from "../../server.js";
+import { useState } from "react";
+
+const { v4: uuidv4 } = require("uuid");
+const dbRef = ref(db);
+
+const [submitted, setSubmitted] = useState(false);
+
+const newOrder = () => {
+  setSubmitted(false);
+};
+
+function saveOrderToDB(userId, orderData) {
+  set(ref(dbRef, "users/" + userId + "orders/"), {
+    cart: orderData.cart,
+    cartValue: orderData.cartValue,
+    orderId: orderData.orderId,
+  });
+}
+
+const submitOrder = (userId, cartData) => {
+  //! TODO: get cart value
+  //! data is hardcored for now, supposed to use cartData
   var data = {
-    //! TODO: uuidv4 for orderId
-    orderId: "123",
-    //! TODO: get cart value
+    orderId: uuidv4(),
     cartValue: "3.40",
     cart: {
-      //! 1 == index of cart, information is as per product.json
       0: {
         id: 1,
         title: "shampoo",
@@ -18,16 +38,16 @@ const submitOrder = () => {
     },
   };
 
-  OrderService.create(data)
-    .then(() => {
-      setSubmitted(true);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-};
+  //! TODO: Upon pressing submitOrder
+  saveOrderToDB(userId, data);
+  setSubmitted(true);
 
-const newOrder = () => {
-  setOrder(initialOrderState);
-  setSubmitted(false);
+  //   OrderService.create(data)
+  //     .then(() => {
+
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
 };

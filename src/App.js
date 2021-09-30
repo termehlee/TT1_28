@@ -5,7 +5,8 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Preferences from "./components/Preferences/Preferences";
 //! Uncomment
 // import Login from "./components/Login/Login";
-import ProductList from "./services/codeSnippets/productPage";
+import ProductList from "./components/Products/productPage";
+import OrdersPage from "./services/codeSnippets/orderPage";
 // import Signup from './components/Signup/Signup';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <h1>Application</h1>
       <BrowserRouter>
         <Switch>
-          <Route exact path={"/products"} component={ProductList} />
+          <Route exact path={"/products"} component={OrdersPage} />
           <Route path="/dashboard">
             <Dashboard />
           </Route>

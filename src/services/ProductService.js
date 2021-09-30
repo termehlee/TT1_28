@@ -1,6 +1,8 @@
 import { get, child } from "firebase/database";
 import { db } from "../server.js";
 
+//! deprecated
+
 const getAllProducts = () => {
   get(child(db, "products"))
     .then((snapshot) => {
