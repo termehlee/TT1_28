@@ -9,19 +9,19 @@ import Login from './components/Login/Login';
 import Registration from './components/Login/Registration';
 // import Signup from './components/Signup/Signup';
 import ShoppingCart from './components/Cart/ShoppingCart';
-
+import Complete from './components/Cart/Complete';
 function App() {
   const [token, setToken] = useState();
 
-  if(!token) {
-    return <Login setToken={setToken} />
-
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
   return (
     <div className="wrapper">
       <h1>Application</h1>
       <BrowserRouter>
         <Switch>
-          <Route exact path={"/products"} component={ProductList} />
+          {/* <Route exact path={"/products"} component={ProductList} /> */}
           <Route path="/dashboard">
             <Dashboard />
           </Route>
@@ -31,8 +31,12 @@ function App() {
           <Route path="/Registraion">
             <Registration />
           </Route>
-          <Route exact path={"/cart"} component={Cart} />
+          <Route path="/complete">
+            <Complete />
+          </Route>
+          <Route exact path={"/cart"} component={ShoppingCart} />
         </Switch>
+        
       </BrowserRouter>
     </div>
   );
