@@ -1,10 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-import { getDatabase } from "firebase/database";
-
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import { getDatabase, set, ref } from "firebase/database";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,7 +18,8 @@ const firebaseConfig = {
   messagingSenderId: "634362721671",
   appId: "1:634362721671:web:f59e7fb283d4d0f9de4f22",
   measurementId: "G-RJXBZBGXLN",
-  databaseURL:"https://techtreck-8a422-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL:
+    "https://techtreck-8a422-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
 // Initialize Firebase
@@ -30,7 +30,7 @@ const auth = app.auth();
 const firestore = app.firestore();
 const db = getDatabase(app);
 
-// Google Login 
+// Google Login
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 const signInWithGoogle = async () => {
@@ -65,7 +65,13 @@ const signInWithEmailAndPassword = async (email, password) => {
 };
 
 //Login with email and password
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (
+  name,
+  email,
+  password,
+  postal,
+  gender,
+) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
@@ -74,6 +80,17 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       name,
       authProvider: "local",
       email,
+      postal: postal,
+      gender: gender,
+    });
+
+    set(ref(db, "users/" + user.uid), {
+      uid: user.uid,
+      name: name,
+      authProvider: "local",
+      email: email,
+      postal: postal,
+      gender: gender,
     });
   } catch (err) {
     console.error(err);

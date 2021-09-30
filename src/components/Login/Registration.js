@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
-import Card from './Card';
-import classes from './Login.module.css';
-import Button from './Button';
+import Card from "./Card";
+import classes from "./Login.module.css";
+import Button from "./Button";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useHistory } from "react-router-dom";
-import { auth, registerWithEmailAndPassword, signInWithGoogle } from "../../services/server.js";
+import {
+  auth,
+  registerWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../services/server.js";
 
 function Registration() {
   const [inputUsername, setInputUsername] = useState("");
@@ -15,7 +19,6 @@ function Registration() {
   const [user, loading, error] = useAuthState(auth);
   const history = useHistory();
 
-
   const submitHandler = (event) => {
     event.preventDefault();
     console.log(
@@ -23,10 +26,16 @@ function Registration() {
       inputPassword,
       inputName,
       inputPostal,
-      inputGender
+      inputGender,
     );
-    console.log(typeof(inputUsername))
-    registerWithEmailAndPassword(inputName.trim(), inputUsername.trim(), inputPassword)
+    console.log(typeof inputUsername);
+    registerWithEmailAndPassword(
+      inputName.trim(),
+      inputUsername.trim(),
+      inputPassword,
+      inputPostal,
+      inputGender,
+    );
   };
 
   useEffect(() => {
