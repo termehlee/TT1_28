@@ -5,6 +5,13 @@
   padding: 2rem;
 }
 
+.register {
+  width: 40%;
+  max-width: 20rem;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
 .control {
   margin: 1rem 0;
   display: flex;
